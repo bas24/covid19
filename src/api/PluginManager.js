@@ -97,6 +97,26 @@ class PluginManager {
     const res = await Promise.all(this.plugins.map(plugin => plugin.johnsHopkinsDataDailyReport()));
     return res;
   };
+
+  async getPRGeneralResults(){
+    const res = await Promise.all(this.plugins.map(plugin => plugin.prGeneralResults()));
+    return res;
+  };
+
+  async getPRDataByRegion(){
+    const res = await Promise.all(this.plugins.map(plugin => plugin.prDataByRegion()));
+    return res;
+  };
+
+  async getPRDataBySex(){
+    const res = await Promise.all(this.plugins.map(plugin => plugin.prDataBySex()));
+    return res;
+  };
+
+  async downloadReportsToCSV(){
+    const res = await Promise.all(this.plugins.map(plugin => plugin.reportsToCSV()));
+    return res;
+  };
 }
 
 module.exports = PluginManager;

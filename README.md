@@ -1,4 +1,4 @@
-# **🐛 COVID19** (version 1.1.4)
+# **🐛 COVID19** (version 1.1.8)
 
 ![node version](https://img.shields.io/badge/node->=10.16.x-brightgreen.svg)
 ![npm version](https://img.shields.io/badge/npm->=6.9.x-brightgreen.svg)
@@ -6,7 +6,7 @@
 <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" target="_blank" />
 <img src="https://img.shields.io/badge/COVID19-API-brightgreen.svg" alt="">
 <img src="https://badgen.net/badge/icon/now?icon=now&label" alt="">
-
+[![Build Status](https://travis-ci.com/ChrisMichaelPerezSantiago/covid19.svg?branch=master)](https://travis-ci.com/ChrisMichaelPerezSantiago/covid19)
 
  <a href="https://nodei.co/npm/covid19-api/"><img src="https://nodei.co/npm/covid19-api.png"></a>
 
@@ -40,7 +40,7 @@
 - [x] [Case Fatality Rate (CFR)](https://www.worldometers.info/coronavirus/coronavirus-death-rate/) - percent of cases that result in death
 - [x] Determine whether [asymptomatic transmission](https://www.worldometers.info/coronavirus/coronavirus-incubation-period/#asy) is possible
 
-**How contagious is the Wuhan Coronavirus? (Ro)**
+**How contagious is the COVID19? (Ro)**
 *The attack rate or transmissibility (how rapidly the disease spreads) of a virus is indicated by its reproductive number (Ro, pronounced R-nought or r-zero), which represents the average number of people to which a single infected person will transmit the virus.*
 
 - [x] WHO's estimated (on Jan. 23) Ro to be between `1.4` and `2.5`.
@@ -49,8 +49,8 @@
 - [x] An outbreak with a reproductive number of below `1` will gradually disappear.
 - [x] For comparison, the Ro for the common flu is `1.3` and for SARS it was `2.0`.
 
-**Fatality Rate (case fatality ratio or CFR) of the Wuhan Coronavirus**
-*See full details:* [Wuhan Coronavirus Fatality Rate](https://www.worldometers.info/coronavirus/coronavirus-death-rate/)
+**Fatality Rate (case fatality ratio or CFR) of the COVID19**
+*See full details:* [COVID19 Fatality Rate](https://www.worldometers.info/coronavirus/coronavirus-death-rate/)
 
 *The novel coronavirus' case fatality rate has been estimated at around `2%`, in the WHO press conference held on January 29, 2020 . However, it noted that, without knowing how many were infected, it was too early to be able to put a percentage on the mortality rate figure.*
 
@@ -64,13 +64,9 @@
 *Symptoms of the novel coronavirus (2019-nCoV) may appear in as few as `2` days or as long as `14` (estimated ranges vary from `2-10` days, `2-14` days, and `10-14` days, [see details](https://www.worldometers.info/coronavirus/coronavirus-incubation-period/)), during which the virus is contagious but the patient does not display any symptom (asymptomatic transmission).*
 
 
-## 🎉 COVID19 API - UPDATED v1.1.4
-- [x] *posinstall and start script removed due to an error about*
- 
-```shell
- Could not install from node_modules\covid19-api\server
-```
-- [x] *Deaths/M pop and 1stcase keys fixed in the `getReports` function.*
+## 🎉 COVID19 API - UPDATED v1.1.8
+- [x] *Download report of all cases confirmed by each country in CSV format provided by the **worldometers** website*
+  - `downloadReportsToCSV()`
 
 
 ## 📖 API Documentation
@@ -212,23 +208,33 @@
 ### PluginManager.getReportsByCountries([country])
 *Confirmed Cases and Deaths by Country*
 
-***Table List (params) Last update***: 3/29/2020
+***Table List (params) Last update***: 04/4/2020
 
 | Countries     |
 | ------------- |
-|algeria , australia , austria |
-|belgium , brazil |
-|canada , china , china-hong-kong-sar|
-|denmark|
-|france|
-|germany , greece |
-|india , indonesia , iran , iraq , ireland , israel ,italy|
-|malaysia|
-|netherlands , norway|
-|philippines , poland , portugal|
-|south-korea , spain , sweden , switzerland|
-|turkey|
-|uk , us|
+|afghanistan, albania, algeria, andorra, angola, anguilla, antigua-and-barbuda, argentina, armenia, aruba, australia, austria, azerbaijan|
+|bahamas, bahrain, bangladesh, barbados, belarus, belgium, belize, benin, bermuda, bhutan, bolivia, bosnia-and-herzegovina, botswana, brazil, british-virgin-islands, brunei-darussalam, bulgaria, burkina-faso, burundi|
+|cabo-verde, cambodia, cameroon, canada, caribbean-netherlands, cayman-islands, central-african-republic, chad, channel-islands, chile, china, china-hong-kong-sar, china-macao-sar, colombia, congo, costa-rica, cote-d-ivoire, croatia, cuba, curacao, cyprus, czech-republic|
+|democratic-republic-of-the-congo, denmark, djibouti, dominica, dominican-republic|
+|ecuador, egypt, el-salvador, equatorial-guinea, eritrea, estonia, ethiopia|
+|faeroe-islands, falkland-islands-malvinas, fiji, finland, france, french-guiana, french-polynesia|
+|gabon, gambia, georgia, germany, ghana, gibraltar, greece, greenland, grenada, guadeloupe, guatemala, guinea, guinea-bissau, guyana|
+|haiti, holy-see, honduras, hungary|
+|iceland, india, indonesia, iran, iraq, ireland, isle-of-man, israel, italy|
+|jamaica, japan, jordan|
+|kazakhstan, kenya, kuwait, kyrgyzstan|
+|laos, latvia, lebanon, liberia, libya, liechtenstein, lithuania, luxembourg|
+|macedonia, madagascar, malawi, malaysia, maldives, mali, malta, martinique, mauritania, mauritius, mayotte, mexico, moldova, monaco, mongolia, montenegro, montserrat, morocco, mozambique, myanmar|
+|namibia, nepal, netherlands, new-caledonia, new-zealand, nicaragua, niger, nigeria, norway|
+|oman|
+|pakistan, panama, papua-new-guinea, paraguay, peru, philippines, poland, portugal|
+|qatar|
+|reunion, romania, russia, rwanda|
+|saint-barthelemy, saint-kitts-and-nevis, saint-lucia, saint-martin, saint-vincent-and-the-grenadines, san-marino, saudi-arabia, senegal, serbia, seychelles, sierra-leone, singapore, sint-maarten, slovakia, slovenia, somalia, south-africa, south-korea, spain, sri-lanka, state-of-palestine, sudan, suriname, swaziland, sweden, switzerland, syria|
+|taiwan, tanzania, thailand, timor-leste, togo, trinidad-and-tobago, tunisia, turkey, turks-and-caicos-islands|
+|uganda uk ukraine united-arab-emirates uruguay us uzbekistan|
+|venezuela, viet-nam|
+|zambia, zimbabwe|
 
 
 ```json
@@ -969,7 +975,159 @@
 ]
 ```
 
+### PluginManager.downloadReportsToCSV()
+*Download report of all cases confirmed by each country in CSV format*
+*It will download the file to the **Desktop** directory with the name **reports.csv***
+
+*You should execute the function as follows*
+
+```javascript
+await PluginManager.downloadReportsToCSV();
+```
+
 ---
+
+# 🐛 COVID-19 Puerto Rico Data
+
+*Data provided by the [Puerto Rico Institute of Statistics](https://estadisticas.pr/en/covid-19), based on official data provided by the Puerto Rico Department of Health.*
+
+*Data at the following [URL](./EstatidistcasPuertoRico/README.md)*
+
+### PluginManager.getPRGeneralResults()
+*Quantity and Percentage Distribution*
+
+```json
+[
+  [
+    {
+      "table": [
+        {
+          "type": "Positivos",
+          "tests_result": "378",
+          "tests_result_percent": "10.80%"
+        },
+        {
+          "type": "Negativos",
+          "tests_result": "2049",
+          "tests_result_percent": "58.80%"
+        },
+        {
+          "type": "Pendientes",
+          "tests_result": "1055",
+          "tests_result_percent": "30.30%"
+        },
+        {
+          "type": "Inconcluso",
+          "tests_result": "4",
+          "tests_result_percent": "0.10%"
+        }
+      ]
+    }
+  ]
+]
+```
+
+### PluginManager.getPRDataByRegion()
+*Distribution by Health Region*
+
+```json
+[
+  [
+    {
+      "table": [
+        {
+          "type": "Arecibo",
+          "evaluated": "",
+          "positive": "9",
+          "negatives": "",
+          "pending": ""
+        },
+        {
+          "type": "Bayamón",
+          "evaluated": "",
+          "positive": "38",
+          "negatives": "",
+          "pending": ""
+        },
+        {
+          "type": "Caguas",
+          "evaluated": "",
+          "positive": "26",
+          "negatives": "",
+          "pending": ""
+        },
+        {
+          "type": "Fajardo",
+          "evaluated": "",
+          "positive": "7",
+          "negatives": "",
+          "pending": ""
+        },
+        {
+          "type": "Mayaguez",
+          "evaluated": "",
+          "positive": "26",
+          "negatives": "",
+          "pending": ""
+        },
+        {
+          "type": "Metro",
+          "evaluated": "",
+          "positive": "76",
+          "negatives": "",
+          "pending": ""
+        },
+        {
+          "type": "Ponce",
+          "evaluated": "",
+          "positive": "10",
+          "negatives": "",
+          "pending": ""
+        },
+        {
+          "type": "USA",
+          "evaluated": "",
+          "positive": "4",
+          "negatives": "",
+          "pending": ""
+        },
+        {
+          "type": "No Disponible",
+          "evaluated": "",
+          "positive": "182",
+          "negatives": "",
+          "pending": ""
+        }
+      ]
+    }
+  ]
+]
+```
+
+### PluginManager.getPRDataBySex()
+*According to the Reported Sex*
+
+```json
+[
+  [
+    {
+      "table": [
+        {
+          "genre": "Femenino",
+          "total": "184"
+        },
+        {
+          "genre": "Masculino",
+          "total": "194"
+        }
+      ]
+    }
+  ]
+]
+```
+
+---
+
 
 
 ## <img src="https://img.icons8.com/color/48/000000/paypal.png"> **Donations**
@@ -991,6 +1149,25 @@ These are projects that take a lot of effort and time to maintain. So with your 
 - *paho(Organizacion Panamericano de la Salud). 2020. Enfermedad por el Coronavirus ‎‎(COVID-19)‎. [online] Available at: <https://www.paho.org/es/temas/coronavirus/enfermedad-por-coronavirus-covid-19/> [Accessed 21 Mar 2020]*
 - *salud.gov. 2020 . ESTATUS DE CASOS BAJO EVALUACIÓN POR COVID-19 [online] Available at: <http://www.salud.gov.pr/Pages/coronavirus.aspx/> [Accessed 22 Mar 2020]*
 - *covidcaremap.org. 2020. COVID CARE [online] Available at: <https://www.covidcaremap.org/#data/> [Accessed 26 Mar 2020]*
+
+
+### **📚 Projects that use the API**
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/yenniejun/covid-texting-service">
+        <img src="https://avatars0.githubusercontent.com/u/9387924?s=400&u=cf7389c0603916a716f6f8308101dd34309493e5&v=4" width="75px;" alt="yenniejun"/><br />
+          <sub>
+            <b>yenniejun</b>
+          </sub>
+      </a><br/>
+        <sub>Covid Texting Service</sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
 
 ## **:handshake: Contributing**
 

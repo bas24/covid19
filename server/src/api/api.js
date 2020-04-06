@@ -4,7 +4,7 @@ const tabletojson = require('tabletojson').Tabletojson;
 const _ = require('lodash');
 const csv = require('csvtojson');
 const request=require('request')
-const {renameKey , exportCSVFile} = require('./utils/utils');
+const {renameKey} = require('./utils/utils');
 const { 
   BASE_URL , 
   WHO_BASE_URL,
@@ -82,15 +82,12 @@ const reports = async() =>{
 
   data[0].table.map(doc =>{
     doc.forEach((obj) => renameKey(obj , 'Deaths/1M pop' , 'Deaths_1M_pop'));
-<<<<<<< HEAD
-//     doc.forEach((obj) => renameKey(obj , '1stcase' , 'FirstCase'));
-=======
     //doc.forEach((obj) => renameKey(obj , 'Reported1st case' , 'FirstCase'));
->>>>>>> upstream/master
     doc.forEach((obj) => renameKey(obj , 'Country,Other' , 'Country'));
     doc.forEach((obj) => renameKey(obj , 'Serious,Critical' , 'Serious_Critical'));
     doc.forEach((obj) => renameKey(obj , 'Tests/\n1M pop' , 'Tests_1M_Pop'));
     doc.forEach((obj) => renameKey(obj , 'Tot Cases/1M pop' , 'TotCases_1M_Pop'));
+    
   });
 
   return Promise.all(data);
@@ -591,7 +588,6 @@ const johnsHopkinsDataDailyReport = async() =>{
   }
 };
   
-
 const prGeneralResults = async() =>{
   try{
     const res1 = await cloudscraper('https://github.com/ChrisMichaelPerezSantiago/covid19/tree/master/EstatidistcasPuertoRico/resultados/datos_en_general',{
@@ -715,22 +711,6 @@ const prDataBySex = async() =>{
 };
 
 
-const reportsToCSV = () =>{
-  try{
-    setTimeout(async() => {
-       reports()
-        .then(res =>{
-          const table = res[0].table[0];
-          const header = Object.keys(res[0].table[0][0]);
-          const title = 'Confirmed Cases and Deaths by Country, Territory, or Conveyance';
-          exportCSVFile(table, header , title)       
-        })
-    }, 100);
-  }catch(err){
-    console.log(err)
-  }
-}
-
 module.exports = {
   reports,
   reportsByCountries,
@@ -753,6 +733,6 @@ module.exports = {
   johnsHopkinsDataDailyReport,
   prGeneralResults,
   prDataByRegion,
-  prDataBySex,
-  reportsToCSV
+  prDataBySex
 };
+
